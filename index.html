@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>抽我拿奖品</title>
+</head>
+<style>
+    body,div {margin:0;padding:0;}
+    a{
+        background:#C6C6C6; opacity: .8; color: #333; text-decoration:none; padding:4px 8px; border-radius: 4px;
+    }
+    .namelist{
+        position: absolute; top:10px; left: 10px;
+    }
+    .rule{
+        position: absolute; top:10px; right: 10px;
+    }
+</style>
+<body style="position: relative;">
+	<div id="game" style="width: 100%; height: 100%;"></div>
+    <a href="http://www.baidu.com" class="namelist">中奖名单</a>
+    <a href="http://www.baidu.com" class="rule">规则</a>
+</body>
+<script src="./js/phaser.min.js"></script>
+<script src="./js/game.js?v=4"></script>
+<script>
+    var SevController = SevController || {};    //服务端控制类
+    /* 数据 
+        ex:
+        SevController.Date.dataname = "..."; 
+    */
+    SevController.Date = function(){}; 
+    SevController.Date.LOTTERYNUM = 10;    // 剩余游戏次数
+
+    /* Api接口 
+        ex:
+        SevController.Api.Get(or POST).apiname = "..."; 
+    */
+    SevController.Api = function(){};
+    SevController.Api.Get = function(){};
+    SevController.Api.Get.startGame = "http://......"; //接口: 点击“戳我开始” 减少一次游戏次数
+
+    /* 事件
+        ex:
+        SevController.Fun.functionname = function(){
+            ...
+        }; 
+    */
+    SevController.Fun = function(){};
+    SevController.Fun.shareBtnClick = function() {    //点击启动画面 “分享给好友” 按钮时间
+        alert('点击分享');
+    };
+    SevController.Fun.gameOver = function(hitnum) {    //游戏结束
+        alert('打了' + hitnum + '下');
+        //window.location.reload();
+    };
+</script>
+</html>
